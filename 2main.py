@@ -204,5 +204,5 @@ while True:
         time.sleep(1)
     except Exception as e:
         print(e)
-        post_message("#coin", "error")
+        post_message("#coin", "try error" + str(e))
         time.sleep(1)

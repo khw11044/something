@@ -155,7 +155,7 @@ def buy_start_sell(coin_name,my_price,target_price,current_price):
             coin_num = upbit.get_balance(coin_name)
             print(current_price, target_price,coin_num)
             sell_limit_order = upbit.sell_limit_order(coin_name, target_price, coin_num*0.9995) # 매도가 걸기 
-            print(sell_limit_order)
+            post_message("#coin", coin_name +': 시작할때 사서 변동성일때 팔자' + str(sell_limit_order))
         else:
             print(buy_result)
             print('buy_start_sell에서 error 걸림')
