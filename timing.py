@@ -147,8 +147,8 @@ def buy_start_sell(coin_name,my_price,target_price,current_price):
         print("target_price",target_price)
         buy_result = upbit.buy_market_order(coin_name, my_price*0.9995) 
         if 'error' not in buy_result:  
-            if target_price < current_price * 1.01 :
-                target_price = round(int(current_price * 1.01),-1)
+            if target_price < current_price * 1.01 and target_price > current_price * 1.09 :    # 목표 매도가가 산시점에서 1%보다 작고 9% 크면
+                target_price = round(int(current_price * 1.02),-1)                             # 2%에서 먹고 팔자  
             print("시작할때 사서 변동성일때 팔자 {} target {}".format(coin_name,str(target_price)))
             print(buy_result)  
             post_message("#coin", coin_name +': 시작할때 사서 변동성일때 팔자' + str(target_price))
